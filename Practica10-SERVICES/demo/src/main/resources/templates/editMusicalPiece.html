@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Musical Piece Form</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+
+<div class="container">
+    <h1>✏️ Edit Musical Piece Form</h1>
+
+    <header th:replace="~{header.html::miHeader}"></header>
+
+    <div class="add-form">
+        <form action="#" method="post" th:action="@{'/piece/submit' + ${mode}}" th:object="${pieceSelected}">
+            <input type="text" th:field="*{title}" />
+            <input type="text" th:field="*{year}" />
+            <select th:field="*{instrumentation}" required>
+                <option value="">-- Elige Instrumentación --</option>
+                <option th:value="PIANO" th:text="PIANO"></option>
+                <option th:value="SOLO" th:text="SOLO"></option>
+                <option th:value="CHAMBER" th:text="CHAMBER"></option>
+                <option th:value="ORCHESTRA" th:text="ORCHESTRA"></option>
+                <option th:value="VOCAL" th:text="VOCAL"></option>
+                <option th:value="STAGE" th:text="STAGE"></option>
+                <option th:value="OTHER" th:text="OTHER"></option>
+            </select>
+            <select th:field="*{composerPiece}" required>
+                <option value="">-- Elige un compositor --</option>
+                <option th:each="comp : ${lista}" th:value="${comp.nameComposer}" th:text="${comp.nameComposer}"></option>
+            </select>
+            <input type="submit" value="Guardar cambios" />
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

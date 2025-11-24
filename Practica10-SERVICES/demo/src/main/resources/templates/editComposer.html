@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Composer Form</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>✏️ Edit Composer Form</h1>
+
+        <header th:replace="~{header.html::miHeader}"></header>
+
+        <div class="add-form">
+            <form action="#" method="post" th:action="@{'/composer/submit' + ${mode}}" th:object="${composerSelected}">
+                    <input type="text" th:field="*{nameComposer}" />
+                    <input type="text" th:field="*{biography}" />
+                    <input type="text" th:field="*{dob}" />
+                    <input type="text" th:field="*{dod}" />
+                    <input type="text" th:field="*{nacionality}" />
+                    <input type="text" th:field="*{bPlace}" />
+                    <input type="text" th:field="*{dPlace}" />
+                <input type="submit" value="Guardar cambios" />
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

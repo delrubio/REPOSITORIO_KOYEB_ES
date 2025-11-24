@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Piezas Musicales</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🎼 Lista de Piezas Musicales</h1>
+
+        <header th:replace="~{/header.html::miHeader}"></header>
+
+        <div class="pieces-list">
+            <div class="piece-card" th:each="piece : ${lista}">
+                <h2 th:text="${piece.title}">Título de la pieza</h2>
+                <p><strong>Año:</strong> <span th:text="${piece.year}">Año</span></p>
+                <p><strong>Instrumentación:</strong> <span th:text="${piece.instrumentation}">Instrumentación</span></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

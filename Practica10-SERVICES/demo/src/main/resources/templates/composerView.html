@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Compositores Musicales</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🎼 Lista de Compositores Musicales</h1>
+
+        <header th:replace="~{/header.html::miHeader}"></header>
+
+        <!--El th:field solo se puede utilizar dentro de un form con th:object.-->
+
+        <div class="search-form">
+            <form method="post" th:action="@{/composer/submit}">
+                <input type="text" name="texto" placeholder="Escribe algo..." />
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
+
+        <div class="comp-list">
+            <div class="piece-card" th:each="composer : ${lista}">
+                <h2 th:text="${composer.nameComposer}">Nombre del compositor</h2>
+                <p><strong>Biografía:</strong> <span th:text="${composer.biography}"></span></p>
+                <p><strong>Fecha de Nacimiento:</strong> <span th:text="${composer.dob}"></span></p>
+                <p><strong>Fecha de Fallecimiento:</strong> <span th:text="${composer.dod}"></span></p>
+                <p><strong>Nacionalidad:</strong> <span th:text="${composer.nacionality}"></span></p>
+                <p><strong>Lugar de Nacimiento:</strong> <span th:text="${composer.bPlace}"></span></p>
+                <p><strong>Lugar de Fallecimiento:</strong> <span th:text="${composer.dPlace}"></span></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Comparar Compositores</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🎼 Compara Diferentes Compositores Musicales</h1>
+
+        <header th:replace="~{/header.html::miHeader}"></header>
+
+        <form id="compareForm" class="search-form">
+
+            <div>
+                <label for="comp1">Selecciona el compositor N°1:</label><br>
+                <select id="comp1" name="comp1" required>
+                    <option value="">-- Elige un compositor --</option>
+                    <option th:each="composer : ${lista}" th:value="${composer.nameComposer}"
+                        th:text="${composer.nameComposer}"></option>
+                </select>
+            </div>
+
+
+            <div>
+                <label for="comp2">Selecciona el compositor N°2:</label><br>
+                <select id="comp2" name="comp2" required>
+                    <option value="">-- Elige un compositor --</option>
+                    <option th:each="composer : ${lista}" th:value="${composer.nameComposer}"
+                        th:text="${composer.nameComposer}"></option>
+                </select>
+            </div>
+
+            <button type="submit">Comparar</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('compareForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const query1 = document.getElementById('comp1').value.trim();
+            const query2 = document.getElementById('comp2').value.trim();
+
+            if (query1 && query2) {
+                const safeQuery1 = encodeURIComponent(query1);
+                const safeQuery2 = encodeURIComponent(query2);
+
+                const url = `http://localhost:8080/compare-composer/${safeQuery1}/${safeQuery2}`;
+                window.location.href = url;
+            } else {
+                alert("Por favor selecciona ambos compositores antes de comparar.");
+            }
+        });
+    </script>
+
+</body>
+</html>

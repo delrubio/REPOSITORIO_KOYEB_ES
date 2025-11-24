@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado de Búsqueda de Compositor</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🎼 The Older Composer Is...</h1>
+
+        <header th:replace="~{/header.html::miHeader}"></header>
+
+        <div class="comp-list">
+            <div class="piece-card" th:each="composer : ${compOlder}">
+                <h2 th:text="${composer.nameComposer}">Nombre del compositor</h2>
+                <p><strong>Biografía:</strong> <span th:text="${composer.biography}"></span></p>
+                <p><strong>Fecha de Nacimiento:</strong> <span th:text="${composer.dob}"></span></p>
+                <p><strong>Fecha de Fallecimiento:</strong> <span th:text="${composer.dod}"></span></p>
+                <p><strong>Nacionalidad:</strong> <span th:text="${composer.nacionality}"></span></p>
+                <p><strong>Lugar de Nacimiento:</strong> <span th:text="${composer.bPlace}"></span></p>
+                <p><strong>Lugar de Fallecimiento:</strong> <span th:text="${composer.dPlace}"></span></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,257 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f4f9;
+    padding: 20px;
+}
+
+.container {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Formulario de búsqueda */
+.search-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.search-form input[type="text"] {
+    width: 60%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    font-size: 1em;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-form input[type="text"]:focus {
+    border-color: #6a5acd;
+    box-shadow: 0 0 5px rgba(106, 90, 205, 0.4);
+}
+
+.search-form button {
+    padding: 12px 25px;
+    background-color: #6a5acd;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-form button:hover {
+    background-color: #5a4cbf;
+    transform: translateY(-2px);
+}
+
+/* (Manteniendo coherencia con tu estilo existente) */
+.pieces-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.piece-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+    border-left: 5px solid #6a5acd;
+    margin-bottom: 10px;
+}
+
+.piece-card:hover {
+    transform: translateY(-5px);
+}
+
+.piece-card h2 {
+    font-size: 1.3em;
+    color: #6a5acd;
+    margin-bottom: 10px;
+}
+
+.piece-card p {
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.piece-card span {
+    font-weight: bold;
+    color: #333;
+}
+
+/* === Estilo del Header y Menú de Navegación === */
+header {
+    background-color: #ffffff;
+    border-radius: 10px;
+    border-left: 5px solid #6a5acd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+/* Contenedor del menú */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 15px 20px;
+}
+
+/* Estilo de los enlaces */
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 1.05em;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Subrayado animado */
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 3px;
+    background-color: #6a5acd;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+/* Hover */
+nav a:hover {
+    color: #6a5acd;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Enlace activo (si quieres marcar la página actual) */
+nav a.active {
+    color: #6a5acd;
+}
+
+nav a.active::after {
+    width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+}
+
+/* === Estilo del formulario para agregar compositor === */
+.add-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    border-left: 5px solid #6a5acd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Campos de texto */
+.add-form form input[type="text"] {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1em;
+    outline: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+}
+
+.add-form form input[type="text"]:focus{
+    border-color: #6a5acd;
+    box-shadow: 0 0 5px rgba(106, 90, 205, 0.3);
+}
+
+/* Botón de envío */
+.add-form form input[type="submit"] {
+    padding: 12px 20px;
+    background-color: #6a5acd;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-form form input[type="submit"]:hover {
+    background-color: #5a4cbf;
+    transform: translateY(-2px);
+}
+
+/* === Estilo para los SELECT === */
+form select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    font-size: 1em;
+    color: #333;
+    outline: none;
+    cursor: pointer;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+    appearance: none; /* Quita el estilo nativo del navegador */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath fill='%236a5acd' d='M0 0l6 8 6-8z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 12px;
+}
+
+/* Efecto al enfocar */
+form select:focus {
+    border-color: #6a5acd;
+    box-shadow: 0 0 5px rgba(106, 90, 205, 0.3);
+}
+
+/* Opciones dentro del desplegable */
+form select option {
+    color: #333;
+    background-color: #fff;
+}
+
+/* Estilo del placeholder (primera opción vacía) */
+form select option[value=""] {
+    color: #aaa;
+}

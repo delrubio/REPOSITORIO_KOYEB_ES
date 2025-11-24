@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Composer</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🥸 Añade un Nuevo Compositor</h1>
+
+        <header th:replace="~{header.html::miHeader}"></header>
+
+        <div class="add-form">
+            <form action="#" method="post" th:action="@{/addComposer/submit}" th:object="${newComposer}">
+                <input type="text" id="nameComposer" th:field="*{nameComposer}" placeholder="Nombre del Compositor"/>
+                <input type="text" id="biography" th:field="*{biography}" placeholder="Escribe una biografía"/>
+                <input type="text" id="dob" th:field="*{dob}" placeholder="Fecha Nacimiento" />
+                <input type="text" id="dod" th:field="*{dod}" placeholder="Fecha de Defuncion"/>
+                <input type="text" id="nacionality" th:field="*{nacionality}" placeholder="Nacionalidad"/>
+                <input type="text" id="bPlace" th:field="*{bPlace}" placeholder="Lugar de Nacimiento"/>
+                <input type="text" id="dPlace" th:field="*{dPlace}" placeholder="Lugar de Defuncion" />
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

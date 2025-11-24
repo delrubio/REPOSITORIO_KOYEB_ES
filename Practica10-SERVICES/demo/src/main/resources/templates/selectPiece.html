@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>select-musical-piece-form</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>🎶 Select Musical Piece Form</h1>
+
+        <header th:replace="~{header.html::miHeader}"></header>
+
+        <div class="add-form">
+            <form id="add-form" action="#" method="post" th:action="@{/editPiece/submit}" th:object="${pieceEdit}">
+                <select name="title" required>
+                    <option value="">-- Elige una Pieza Musical --</option>
+                    <option th:each="piece : ${lista}" th:value="${piece.title}" th:text="${piece.title}"></option>
+                </select>
+                <input type="submit" value="Enviar" />
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
