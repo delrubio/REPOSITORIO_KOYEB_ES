@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Conservatorio de Música - Página Informativa</title>
+    <meta name="description" content="Portal del Conservatorio: información, profesores, eventos y muestras sonoras.">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --accent: #2b6cb0;
+            --muted: #6b7280;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --radius: 12px;
+            --glass: rgba(255, 255, 255, 0.6);
+            --maxw: 1100px;
+            --gap: 18px;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: Roboto, system-ui, -apple-system, Segoe UI, Arial;
+            margin: 0;
+            background: linear-gradient(180deg, #eef2f7 0%, var(--bg) 100%);
+            color: #0f172a;
+            -webkit-font-smoothing: antialiased
+        }
+
+        .wrap {
+            max-width: var(--maxw);
+            margin: 32px auto;
+            padding: 24px
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            gap: 18px
+        }
+
+        .logo {
+            width: 72px;
+            height: 72px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--accent), #805ad5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-family: Montserrat
+        }
+
+        h1 {
+            margin: 0;
+            font-family: Montserrat;
+            font-size: 1.6rem
+        }
+
+        p.lead {
+            color: var(--muted);
+            margin: 6px 0 0
+        }
+
+        /* Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: var(--gap);
+            margin-top: 22px
+        }
+
+        @media (max-width:900px) {
+            .grid {
+                grid-template-columns: 1fr
+            }
+
+            .wrap {
+                padding: 16px
+            }
+        }
+
+        /* Card */
+        .card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 16px;
+            box-shadow: 0 6px 18px rgba(11, 22, 40, 0.06)
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px
+        }
+
+        .section-title h2 {
+            font-size: 1.05rem;
+            margin: 0
+        }
+
+        .small {
+            font-size: 0.9rem;
+            color: var(--muted)
+        }
+
+        /* Programs list */
+        .programs {
+            display: grid;
+            gap: 12px
+        }
+
+        .prog {
+            display: flex;
+            gap: 12px;
+            align-items: center
+        }
+
+        .prog .thumb {
+            width: 68px;
+            height: 68px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #ffd6a5, #fbcfe8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #0f172a
+        }
+
+        .prog h3 {
+            margin: 0;
+            font-size: 1rem
+        }
+
+        .prog p {
+            margin: 2px 0 0;
+            color: var(--muted);
+            font-size: 0.9rem
+        }
+
+        /* Events */
+        .events {
+            display: flex;
+            flex-direction: column;
+            gap: 10px
+        }
+
+        .event {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 10px;
+            border-radius: 10px;
+            background: linear-gradient(180deg, #ffffff, #fbfdff);
+            align-items: center
+        }
+
+        .event time {
+            font-weight: 600;
+            color: var(--accent)
+        }
+
+        .event .meta {
+            color: var(--muted);
+            font-size: 0.9rem
+        }
+
+        /* Faculty */
+        .faculty {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px
+        }
+
+        @media (max-width:500px) {
+            .faculty {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .teacher {
+            display: flex;
+            gap: 10px;
+            align-items: center
+        }
+
+        .avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #c7f9cc, #bcdffd);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700
+        }
+
+        /* Audio viewer */
+        .audio-sample {
+            display: flex;
+            flex-direction: column;
+            gap: 8px
+        }
+
+        /* Search */
+        .search {
+            display: flex;
+            gap: 8px
+        }
+
+        input[type="search"] {
+            flex: 1;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #e6edf3
+        }
+
+        button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 10px 14px;
+            border-radius: 10px;
+            cursor: pointer
+        }
+
+        footer {
+            margin-top: 26px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem
+        }
+
+        /* small utilities */
+        .pill {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: #f1f5f9;
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 0.85rem
+        }
+
+        .muted {
+            color: var(--muted)
+        }
+
+        /* Accessible focus */
+        :focus {
+            outline: 3px solid rgba(43, 108, 176, 0.18);
+            outline-offset: 2px
+        }
+    </style>
+</head>
+
+<body>
+    <main class="wrap" role="main">
+        <header aria-label="Encabezado principal">
+            <div class="logo" aria-hidden>CM</div>
+            <div>
+                <h1>Conservatorio Municipal de Música — Portal</h1>
+                <p class="lead">Programas, conciertos, profesorado y muestras sonoras. Información pensada para
+                    estudiantes, familias y público.</p>
+            </div>
+        </header>
+
+        <div class="grid" aria-live="polite">
+            <section class="card" aria-labelledby="programas">
+                <div class="section-title">
+                    <h2 id="programas">Programas de estudio</h2>
+                    <span class="pill">Matrícula abierta</span>
+                </div>
+
+                <div class="search" role="search" aria-label="Buscar programas">
+                    <input type="search" id="buscador" placeholder="Busca por instrumento, nivel o profesor"
+                        aria-label="Buscar programas">
+                    <button id="btnBuscar" aria-label="Buscar">Buscar</button>
+                </div>
+
+                <div class="programs" id="listaProgramas" style="margin-top:12px">
+                    <!-- Programas renderizados por JS -->
+                </div>
+
+                <hr style="margin:16px 0;border:none;border-top:1px solid #eef2f6">
+                <div class="audio-sample">
+                    <h3 style="margin:0">Muestra sonora: <span class="small muted">Grabación destacada</span></h3>
+                    <p class="muted" style="margin:6px 0 0">Escucha un extracto de la orquesta del conservatorio (3:10).
+                    </p>
+                    <audio controls preload="none" id="player">
+                        <source src="samples/orquesta-ejemplo.mp3" type="audio/mpeg">
+                        Tu navegador no soporta audio.
+                    </audio>
+                </div>
+            </section>
+
+            <aside>
+                <div class="card" style="margin-bottom:var(--gap)" aria-labelledby="agenda">
+                    <div class="section-title">
+                        <h2 id="agenda">Próximos conciertos</h2>
+                        <span class="small">Entradas en taquilla</span>
+                    </div>
+                    <div class="events" id="listaEventos">
+                        <!-- Eventos por JS -->
+                    </div>
+                    <div style="margin-top:10px;text-align:right"><a href="#" class="small">Ver calendario completo
+                            »</a></div>
+                </div>
+
+                <div class="card">
+                    <div class="section-title">
+                        <h2>Profesorado</h2>
+                        <span class="small">Equipo docente</span>
+                    </div>
+                    <div class="faculty" id="listaProfesores">
+                        <!-- Profesores por JS -->
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <section class="card" style="margin-top:18px" aria-labelledby="contacto">
+            <div class="section-title">
+                <h2 id="contacto">Contacto y visitas</h2>
+                <span class="small">Horario de atención</span>
+            </div>
+            <p class="muted" style="margin:0 0 10px">Visitas guiadas los viernes. Para concertar entrevista escribe o
+                llama.</p>
+            <form id="formContacto" onsubmit="return false" style="display:flex;flex-wrap:wrap;gap:12px">
+                <input name="nombre" required placeholder="Tu nombre"
+                    style="flex:1;min-width:200px;padding:10px;border-radius:10px;border:1px solid #e6edf3">
+                <input name="email" type="email" required placeholder="Email"
+                    style="flex:1;min-width:200px;padding:10px;border-radius:10px;border:1px solid #e6edf3">
+                <input name="asunto" placeholder="Asunto"
+                    style="flex-basis:100%;padding:10px;border-radius:10px;border:1px solid #e6edf3">
+                <textarea name="mensaje" placeholder="Tu mensaje" rows="3"
+                    style="flex-basis:100%;padding:10px;border-radius:10px;border:1px solid #e6edf3"></textarea>
+                <button type="submit" style="margin-left:auto">Enviar mensaje</button>
+            </form>
+            <div id="resultado" role="status" aria-live="polite" style="margin-top:10px;color:var(--accent)"></div>
+        </section>
+
+        <footer>
+            © Conservatorio Municipal • Dirección: Calle de la Música 12 • Teléfono: 91 123 45 67
+        </footer>
+    </main>
+
+    <script>
+        // Datos de ejemplo. Puedes sustituirlos por datos reales desde un JSON o API.
+        const programas = [
+            { titulo: 'Grado Profesional - Piano', desc: 'Enfoque clásico y repertorio moderno. Clases individuales y música de cámara.' },
+            { titulo: 'Grado Profesional - Violín', desc: 'Técnica, orquesta y música de cámara. Preparación para acceso a estudios superiores.' },
+            { titulo: 'Enseñanzas Elementales - Guitarra', desc: 'Iniciación, lenguaje musical y pequeñas agrupaciones.' },
+            { titulo: 'Dirección de Orquesta (Curso Intensivo)', desc: 'Taller anual con prácticas reales y conciertos.' }
+        ];
+
+        const eventos = [
+            { fecha: '2025-11-15', hora: '19:00', titulo: 'Concierto de Otoño - Orquesta Sinfónica', lugar: 'Sala Principal' },
+            { fecha: '2025-12-05', hora: '18:00', titulo: 'Recital de Piano - Alumnos Avanzados', lugar: 'Aula 3' },
+            { fecha: '2025-12-20', hora: '17:00', titulo: 'Concierto de Navidad - Coro y Orquesta', lugar: 'Iglesia San Martín' }
+        ];
+
+        const profesores = [
+            { nombre: 'María Torres', area: 'Piano', cargo: 'Titular' },
+            { nombre: 'Javier Molina', area: 'Violín', cargo: 'Jefe de Estudios' },
+            { nombre: 'Ana Ruiz', area: 'Canto', cargo: 'Profesora' },
+            { nombre: 'Carlos Vega', area: 'Percusión', cargo: 'Profesor' }
+        ];
+
+        // Renderizar programas
+        const listaProgramas = document.getElementById('listaProgramas');
+        function renderProgramas(items) {
+            listaProgramas.innerHTML = items.map(p => `
+        <article class="prog" tabindex="0" role="article">
+          <div class="thumb">${p.titulo.split(' ')[0].slice(0, 2).toUpperCase()}</div>
+          <div>
+            <h3>${p.titulo}</h3>
+            <p>${p.desc}</p>
+          </div>
+        </article>
+      `).join('');
+        }
+        renderProgramas(programas);
+
+        // Buscar
+        document.getElementById('btnBuscar').addEventListener('click', () => {
+            const q = document.getElementById('buscador').value.trim().toLowerCase();
+            if (!q) return renderProgramas(programas);
+            const filtrados = programas.filter(p => (p.titulo + ' ' + p.desc).toLowerCase().includes(q));
+            renderProgramas(filtrados);
+        });
+
+        // Renderizar eventos
+        const listaEventos = document.getElementById('listaEventos');
+        function renderEventos() {
+            listaEventos.innerHTML = eventos.map(e => `
+        <div class="event" tabindex="0">
+          <div>
+            <time datetime="${e.fecha}">${new Date(e.fecha).toLocaleDateString('es-ES', { day: '2-digit', month: 'short' })} — ${e.hora}</time>
+            <div class="meta">${e.titulo} • ${e.lugar}</div>
+          </div>
+          <div class="small muted">Entradas</div>
+        </div>
+      `).join('');
+        }
+        renderEventos();
+
+        // Renderizar profesores
+        const listaProfesores = document.getElementById('listaProfesores');
+        function renderProfesores() {
+            listaProfesores.innerHTML = profesores.map(t => `
+        <div class="teacher" tabindex="0">
+          <div class="avatar" aria-hidden>${t.nombre.split(' ').map(n => n[0]).join('')}</div>
+          <div>
+            <div style="font-weight:600">${t.nombre}</div>
+            <div class="small muted">${t.area} • ${t.cargo}</div>
+          </div>
+        </div>
+      `).join('');
+        }
+        renderProfesores();
+
+        // Formulario (simulado)
+        document.getElementById('formContacto').addEventListener('submit', () => {
+            const resultado = document.getElementById('resultado');
+            resultado.textContent = 'Gracias — tu mensaje ha sido enviado. Nos pondremos en contacto pronto.';
+            // Aquí podrías hacer fetch(...) a un endpoint real
+        });
+
+        // Mejora pequeña: reproducir audio desde lista de eventos si fuera necesario (ejemplo)
+        // Accessibility: permitir teclado para ver más info
+        document.addEventListener('keydown', (e) => {
+            // Ejemplo: pulsar "p" abre primer programa en consola (demo)
+            if (e.key.toLowerCase() === 'p') {
+                console.log('Atajo: ver primer programa', programas[0]);
+            }
+        });
+
+    </script>
+</body>
+
+</html>
